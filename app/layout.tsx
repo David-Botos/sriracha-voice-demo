@@ -17,9 +17,9 @@ const fontMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Daily Bots Demo",
-  description: "Daily Bots voice-to-voice example app",
-  metadataBase: new URL("https://demo.dailybots.ai"),
+  title: "BearHug Voice Agent Demo",
+  description: "Voice agent for better social services data",
+  metadataBase: new URL("https://davidbotos.com"),
 };
 
 export default function RootLayout({
