@@ -14,6 +14,26 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@boundaryml/baml-darwin-arm64@0.78.0":
+  version "0.78.0"
+  resolved "https://registry.npmjs.org/@boundaryml/baml-darwin-arm64/-/baml-darwin-arm64-0.78.0.tgz"
+  integrity sha512-WGnveIaxNoeWST/kunDToG2+OdQiI9ae/pwU/g0uHBAgpj/igpbRHiz7xcIZspXNPKm/Pdvkvso9Jnjk9tOvkQ==
+
+"@boundaryml/baml@^0.78.0":
+  version "0.78.0"
+  resolved "https://registry.npmjs.org/@boundaryml/baml/-/baml-0.78.0.tgz"
+  integrity sha512-M8F4Q1WfzrIETlySy9NJDHysd1gxrli0d/LnVUG78UWs5Lq9GLg3z91zro2U0BdFu8Wx2Kx31NTgMPWjNAlN2g==
+  dependencies:
+    "@scarf/scarf" "^1.3.0"
+  optionalDependencies:
+    "@boundaryml/baml-darwin-arm64" "0.78.0"
+    "@boundaryml/baml-darwin-x64" "0.78.0"
+    "@boundaryml/baml-linux-arm64-gnu" "0.78.0"
+    "@boundaryml/baml-linux-arm64-musl" "0.78.0"
+    "@boundaryml/baml-linux-x64-gnu" "0.78.0"
+    "@boundaryml/baml-linux-x64-musl" "0.78.0"
+    "@boundaryml/baml-win32-x64-msvc" "0.78.0"
+
 "@csstools/selector-resolve-nested@^3.0.0":
   version "3.0.0"
   resolved "https://registry.npmjs.org/@csstools/selector-resolve-nested/-/selector-resolve-nested-3.0.0.tgz"
@@ -450,6 +470,11 @@
   version "1.10.4"
   resolved "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.10.4.tgz"
   integrity sha512-WJgX9nzTqknM393q1QJDJmoW28kUfEnybeTfVNcNAPnIx210RXm2DiXiHzfNPJNIUUb1tJnz/l4QGtJ30PgWmA==
+
+"@scarf/scarf@^1.3.0":
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/@scarf/scarf/-/scarf-1.4.0.tgz"
+  integrity sha512-xxeapPiUXdZAE3che6f3xogoJPeZgig6omHEy1rIY5WVsB3H2BHNnZH+gHG6x91SCWyQCzWGsuL2Hh3ClO5/qQ==
 
 "@sentry-internal/feedback@7.120.3":
   version "7.120.3"
