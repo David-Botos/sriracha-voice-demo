@@ -19,7 +19,7 @@ import type { BamlRuntime, FunctionResult, BamlCtxManager, Image, Audio, ClientR
 import { toBamlError } from "@boundaryml/baml"
 import type { Checked, Check, RecursivePartialNull as MovedRecursivePartialNull } from "./types"
 import type * as types from "./types"
-import type {Resume} from "./types"
+import type {Contact, ContactInformation, Resume} from "./types"
 import type TypeBuilder from "./type_builder"
 import { DO_NOT_USE_DIRECTLY_UNLESS_YOU_KNOW_WHAT_YOURE_DOING_CTX, DO_NOT_USE_DIRECTLY_UNLESS_YOU_KNOW_WHAT_YOURE_DOING_RUNTIME } from "./globals"
 
@@ -45,6 +45,26 @@ export class BamlSyncClient {
     throw new Error("stream is not available in BamlSyncClient. Use `import { b } from 'baml_client/async_client")
   }
 
+  
+  ExtractContactInformation(
+      transcript: string,
+      __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry }
+  ): ContactInformation {
+    try {
+    const raw = this.runtime.callFunctionSync(
+      "ExtractContactInformation",
+      {
+        "transcript": transcript
+      },
+      this.ctx_manager.cloneContext(),
+      __baml_options__?.tb?.__tb(),
+      __baml_options__?.clientRegistry,
+    )
+    return raw.parsed(false) as ContactInformation
+    } catch (error: any) {
+      throw toBamlError(error);
+    }
+  }
   
   ExtractResume(
       resume: string,

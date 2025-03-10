@@ -45,6 +45,21 @@ export function all_succeeded<CheckName extends string>(checks: Record<CheckName
 export function get_checks<CheckName extends string>(checks: Record<CheckName, Check>): Check[] {
     return Object.values(checks)
 }
+export interface Contact {
+  name: string
+  title: string
+  department: string
+  email: string
+  phone: string
+  phoneDescription: string
+  phoneExtension: number
+  
+}
+
+export interface ContactInformation {
+  contacts: Contact[]
+}
+
 export interface Resume {
   name: string
   email: string

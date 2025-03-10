@@ -20,7 +20,7 @@ import { toBamlError, BamlStream } from "@boundaryml/baml"
 import type { Checked, Check, RecursivePartialNull as MovedRecursivePartialNull } from "./types"
 import type { partial_types } from "./partial_types"
 import type * as types from "./types"
-import type {Resume} from "./types"
+import type {Contact, ContactInformation, Resume} from "./types"
 import type TypeBuilder from "./type_builder"
 import { DO_NOT_USE_DIRECTLY_UNLESS_YOU_KNOW_WHAT_YOURE_DOING_CTX, DO_NOT_USE_DIRECTLY_UNLESS_YOU_KNOW_WHAT_YOURE_DOING_RUNTIME } from "./globals"
 
@@ -44,6 +44,26 @@ export class BamlAsyncClient {
     return this.stream_client
   }
 
+  
+  async ExtractContactInformation(
+      transcript: string,
+      __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry }
+  ): Promise<ContactInformation> {
+    try {
+      const raw = await this.runtime.callFunction(
+        "ExtractContactInformation",
+        {
+          "transcript": transcript
+        },
+        this.ctx_manager.cloneContext(),
+        __baml_options__?.tb?.__tb(),
+        __baml_options__?.clientRegistry,
+      )
+      return raw.parsed(false) as ContactInformation
+    } catch (error) {
+      throw toBamlError(error);
+    }
+  }
   
   async ExtractResume(
       resume: string,
@@ -70,6 +90,32 @@ export class BamlAsyncClient {
 class BamlStreamClient {
   constructor(private runtime: BamlRuntime, private ctx_manager: BamlCtxManager) {}
 
+  
+  ExtractContactInformation(
+      transcript: string,
+      __baml_options__?: { tb?: TypeBuilder, clientRegistry?: ClientRegistry }
+  ): BamlStream<partial_types.ContactInformation, ContactInformation> {
+    try {
+      const raw = this.runtime.streamFunction(
+        "ExtractContactInformation",
+        {
+          "transcript": transcript
+        },
+        undefined,
+        this.ctx_manager.cloneContext(),
+        __baml_options__?.tb?.__tb(),
+        __baml_options__?.clientRegistry,
+      )
+      return new BamlStream<partial_types.ContactInformation, ContactInformation>(
+        raw,
+        (a): partial_types.ContactInformation => a,
+        (a): ContactInformation => a,
+        this.ctx_manager.cloneContext(),
+      )
+    } catch (error) {
+      throw toBamlError(error);
+    }
+  }
   
   ExtractResume(
       resume: string,

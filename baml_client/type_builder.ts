@@ -27,7 +27,7 @@ export default class TypeBuilder {
     constructor() {
         this.tb = new _TypeBuilder({
           classes: new Set([
-            "Resume",
+            "Contact","ContactInformation","Resume",
           ]),
           enums: new Set([
             

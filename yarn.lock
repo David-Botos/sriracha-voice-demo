@@ -19,6 +19,11 @@
   resolved "https://registry.npmjs.org/@boundaryml/baml-darwin-arm64/-/baml-darwin-arm64-0.78.0.tgz"
   integrity sha512-WGnveIaxNoeWST/kunDToG2+OdQiI9ae/pwU/g0uHBAgpj/igpbRHiz7xcIZspXNPKm/Pdvkvso9Jnjk9tOvkQ==
 
+"@boundaryml/baml-nextjs-plugin@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/@boundaryml/baml-nextjs-plugin/-/baml-nextjs-plugin-0.1.0.tgz"
+  integrity sha512-Vr9c7mvaAP7WiEZul39z+rbUSFEi9dOtH4C9lLxp+p6BHLpBJpqTeMGBVUL1YWsuTqR3a2FMebhmOOHQZVguXA==
+
 "@boundaryml/baml@^0.78.0":
   version "0.78.0"
   resolved "https://registry.npmjs.org/@boundaryml/baml/-/baml-0.78.0.tgz"
@@ -2286,7 +2291,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next@14.2.5:
+next@*, next@14.2.5:
   version "14.2.5"
   resolved "https://registry.npmjs.org/next/-/next-14.2.5.tgz"
   integrity sha512-0f8aRfBVL+mpzfBjYfQuLWh2WyAwtJXCRfkPF4UJ5qd2YwrHczsrSzXU4tRMV0OAxR8ZJZWPFn6uhSC56UTsLA==
