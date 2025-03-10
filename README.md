@@ -1,80 +1,41 @@
-[![Try](https://img.shields.io/badge/try_it-here-blue)](https://demo.dailybots.ai)
-[![Deploy](https://img.shields.io/badge/Deploy_to_Vercel-black?style=flat&logo=Vercel&logoColor=white)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdaily-demos%2Fdaily-bots-web-demo&env=DAILY_BOTS_URL,DAILY_API_KEY,NEXT_PUBLIC_BASE_URL&project-name=daily-bots-demo&repository-name=daily-bots-web-demo)
+# BearHug Voice Agent
 
+An AI-powered voice agent for improving community service data collection and management.
 
-<img src="public/icon.png" width="120px">
+## Overview
 
+BearHug Voice Agent is part of the larger BearHug collaborative data quality platform that aims to consolidate and improve community service information across the social safety net. This voice agent specifically uses DailyBots to establish voice communication with community based organizations (CBOs) such as food banks, shelters, and other social service providers.
 
-# Daily Bots Demo
+The agent conducts conversations to gather critical service information including:
+- Organizational capacity
+- Service availability and hours
+- Program offerings
+- Key contact personnel
 
-Example NextJS app that demonstrates core capabilities of [Daily Bots](https://bots.daily.co). 
+By automating initial outreach and information gathering, the system saves valuable time for human data managers who can then focus on verification and quality assurance.
 
-## Other demos
+## Problem Solved
 
-- [Vision](https://github.com/daily-demos/daily-bots-web-demo/tree/khk/vision-for-launch) - Anthropic, describe webcam.
-- [Function calling](https://github.com/daily-demos/daily-bots-web-demo/tree/cb/function-call) - Anthropic, function calling (get current weather)
+Currently, social service data exists in fragmented silos across various 211 systems, non-profits, churches, and community organizations. This fragmentation creates significant challenges for:
+- Hospitals and healthcare providers
+- Social workers
+- Government agencies
+- Philanthropic organizations
+- Individuals seeking assistance
 
-## Getting started
+BearHug Voice Agent helps address this problem by streamlining the data collection process, automating initial outreach, and ensuring more comprehensive and up-to-date service information.
 
-### Configure your local environment
+## Technical Details
 
-```shell
-cp env.example .env.local
-```
+### Architecture
+- Built with React and Next.js
+- Integrates with DailyBots via API for voice communication
+- Uses RTVI SDK for React-based control of model interactions
+- Can be packaged with Twilio or Daily for automated dialing
 
-`NEXT_PUBLIC_BASE_URL` defaults to `/api`, which is configured as Next server-side route handler. You can pass through service API keys, override service and config options within this route.
-
-`DAILY_BOTS_URL` URL of the Daily Bots `start` endpoint (https://api.daily.co/v1/bots/start)
-
-
-`DAILY_API_KEY` your Daily API key obtained by registering at https://bots.daily.co.
-
-`OPENAI_API_KEY` Optional: provide a OpenAI API key. Daily Bots does not provide an integrated OpenAI service, so to use it, you will need to provide your own key. You can read more about integrated and 'bring your own key' [here](https://docs.dailybots.ai/api-reference/client/supportedServices).
-
-### Install dependencies
-
-```shell
-yarn 
-```
-
-### Run the project
-
-```shell
-yarn run dev
-```
-
-## How does this work?
-
-Daily Bots is built on two open-source technologies:
-
-- [Pipecat](https://www.pipecat.ai) - Python library for building real-time agent
-- [RTVI](https://github.com/rtvi-ai) - Open-standard for Real-Time Voice [and Video] Inference
-
-This project makes use of [`realtime-ai`](https://www.npmjs.com/package/realtime-ai), [`realtime-ai-react`](https://www.npmjs.com/package/realtime-ai-react) and [`realtime-ai-daily`](https://www.npmjs.com/package/realtime-ai-daily) to interact with the Daily Bot.
-
-Learn more about the RTVI web client libraries [on the docs](https://docs.rtvi.ai).
-
-### Configuration
-
-All Voice Client configuration can be found in the [rtvi.config.ts](/rtvi.config.ts) file. You can edit any prompts, services of config settings in this file.
-
-
-### API routes
-
-This project exposes three server-side routes:
-
-- [api/route.ts](app/api/route.ts)
-- optional: [api/dialin/route.ts](app/api/dialin/route.ts)
-- optional: [api/dialout/route.ts](app/api/dialout/route.ts)
-
-The routes project a secure way to pass any required secrets or configuration directly to the Daily Bots API. Your `NEXT_PUBLIC_BASE_URL` must point to your `/api` route and passed to the `VoiceClient`. 
-
-The routes are passed a `config` array and `services` map, which can be passed to the Daily Bots REST API, or modified securely. 
-
-Daily Bots `https://api.daily.co/v1/bots/start` has some required properties, which you can read more about [here](https://docs.dailybots.ai/api-reference/endpoint/startBot). You must set:
-
-- `bot_profile`
-- `max_duration`
-- `config`
-- `services`
-- Optional, if using OpenAI: `api_keys`
+### Data Flow
+1. Agent initiates calls to CBOs
+2. Conducts structured conversations to gather service details
+3. Data is stored in Human Service Data Specification (HSDS) format
+4. Information undergoes human review
+5. Verified data is federated and shared across the platform
