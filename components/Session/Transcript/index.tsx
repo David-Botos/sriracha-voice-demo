@@ -17,12 +17,11 @@ const Transcript: React.FC<TranscriptProps> = ({ entries }) => {
 
   return (
     <div>
-      <p className="text-gray-600">
-        Note: Spellings, emails, and phone numbers may be strange. This is a
-        pre-alpha demo. Version 2 will include functions that help perfect the
-        transcription of these elements, for now, small imperfections can
-        usually be handled by the structured output inference displayed below
-        after the conversation is over.
+      <p className="text-gray-600 text-left">
+        Note: This is a pre-alpha demo. Version 2 will include features to
+        improve transcription of spellings, emails, and phone numbers.
+        Currently, small imperfections are typically handled by the structured
+        output inference displayed after the conversation.
       </p>
       <div
         className="w-full max-h-96 overflow-y-auto bg-gray-50 rounded-lg border border-gray-200 mt-4 p-2"
@@ -48,7 +47,11 @@ const Transcript: React.FC<TranscriptProps> = ({ entries }) => {
                       : "bg-white border border-gray-200 rounded-bl-sm"
                   } ${!entry.final ? "opacity-70 border-dashed" : ""}`}
                 >
-                  <div className="leading-normal whitespace-pre-wrap">
+                  <div
+                    className={`leading-normal whitespace-pre-wrap ${
+                      entry.source === "user" ? "text-right" : "text-left"
+                    }`}
+                  >
                     {entry.text}
                   </div>
                 </div>

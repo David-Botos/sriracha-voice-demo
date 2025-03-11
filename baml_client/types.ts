@@ -58,6 +58,7 @@ export interface Contact {
 
 export interface ContactInformation {
   contacts: Contact[]
+  
 }
 
 export interface Resume {

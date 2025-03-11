@@ -63,3 +63,37 @@ test ContactInformationTest {
     "#
   }
 }
+
+test DavidConversationTest {
+  functions [ExtractContactInformation]
+  args {
+    transcript #"
+      [BOT] Hello, I'm Jordan, the AI assistant for Two One One, a resource directory non-profit.
+[BOT]  I'm reaching out to find the right contact at XYZ Community Services to answer some questions about your services.
+[BOT]  Could you please let me know if there's someone who organizes services that our human experts could speak with?
+[USER] Sure.
+[USER] Would be David Bottos, spelled b o t o s His
+[USER] phone number is six three zero four two seven seven one nine nine.
+[USER] Email is david.m.bodice@gmail.com.
+[BOT] Thank you so much for providing that information.
+[BOT]  Just to confirm, the best contact for our human experts to reach out to would be David Bottos, and his contact information is six three zero four two seven seven one nine nine, and his email is david dot m dot botos at gmail dot com.
+[BOT]  Could you please spell his last name again for me, I want to make sure I get it right.
+[USER] B as in boy, o as in Oscar, t as in Tom, o as in Oscar, s as in Sam.
+[BOT] Thank you for spelling that out for me, David.
+[BOT]  So, to confirm, the correct spelling of his last name is indeed B-O-T-O-S. I appreciate you clarifying that for me.
+[BOT]  Now, just to confirm his contact information one more time: David Bottos can be reached at six three zero four two seven seven one nine nine, and his email is david dot m dot botos at gmail dot com.
+[BOT]  Are there any specific times or days when it's best for our human experts to reach out to him?
+[USER] Yeah. Between 9AM and 2PM would be best.
+[USER] On Fridays.
+[BOT] So, to recap, the best contact for our human experts to reach out to is David Bottos, and his contact information is six three zero four two seven seven one nine nine, and his email is david dot m dot botos at gmail dot com.
+[BOT]  He's available to talk between 9AM and 2PM on Fridays.
+[BOT]  I really appreciate you taking the time to provide this information.
+[BOT]  Is there anything else I should know about reaching out to David or XYZ Community Services?
+[USER] Yep. This is alright.
+[USER] I've gotta go.
+[BOT] Thank you so much for your time and for providing the information about David Bottos.
+[BOT]  I appreciate your help, and I'll make sure to pass this along to our human experts.
+[BOT]  Have a great day, and goodbye!
+    "#
+  }
+}
